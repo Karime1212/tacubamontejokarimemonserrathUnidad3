@@ -1,0 +1,5 @@
+config/conexion.php
+config/correo.php
+uploads/productos/*
+!uploads/productos/.htaccess
+*.log

@@ -1,0 +1,1604 @@
+:root {
+    --crema: #ffffff;
+    --rosa: #ead0c4;
+    --rosaclaro: #f5e6dd;
+    --cafe: #292929;
+    --cacao: #765444;
+    --cacaooscuro: #794235;
+    --suave: #8f7a6f;
+    --linea: #dddddd;
+    --sombra: 0 18px 45px #6943370d;
+    --bs-body-font-family: Arial, Helvetica, sans-serif;
+    --bs-body-bg: #ffffff;
+    --bs-body-color: #292929;
+    --bs-border-color: #dddddd;
+}
+
+* {
+    box-sizing: border-box;
+}
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 120px;
+}
+body {
+    margin: 0;
+    background: var(--crema);
+    color: var(--cafe);
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.7;
+}
+[hidden] {
+    display: none !important;
+}
+a {
+    color: var(--cacao);
+}
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+button,
+a {
+    touch-action: manipulation;
+}
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible {
+    outline: 3px solid #b48b52;
+    outline-offset: 4px;
+}
+h1,
+h2,
+h3 {
+    color: var(--cafe);
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    line-height: 1.12;
+}
+h1 {
+    font-size: clamp(40px, 4.3vw, 62px);
+    letter-spacing: -1.8px;
+}
+h2 {
+    font-size: clamp(32px, 3vw, 44px);
+    letter-spacing: -1px;
+}
+h3 {
+    font-size: 24px;
+}
+h1 em,
+h2 em {
+    color: var(--cacao);
+}
+p {
+    color: var(--suave);
+    font-size: 14px;
+    margin: 15px 0 23px;
+}
+.container {
+    max-width: 1180px;
+}
+.anuncio {
+    text-align: center;
+    padding: 7px 15px;
+    background: var(--cacao);
+    color: white;
+    font-size: 10px;
+    letter-spacing: 1.3px;
+}
+.encabezado {
+    position: sticky;
+    top: 0;
+    z-index: 30;
+    background: #fffffff5;
+    border-bottom: 1px solid var(--linea);
+    backdrop-filter: blur(16px);
+    transition: box-shadow 0.25s;
+}
+.encabezado.sombra {
+    box-shadow: 0 6px 22px #6943370a;
+}
+.marca {
+    display: inline-flex;
+    align-items: center;
+    gap: 11px;
+    text-decoration: none;
+    color: var(--cafe);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 24px;
+    line-height: 1.1;
+    white-space: nowrap;
+}
+.marca small {
+    display: block;
+    color: var(--cacao);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 8px;
+    letter-spacing: 1.6px;
+    margin-top: 7px;
+}
+.navegacion {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+.navegacion > a:not(.boton) {
+    text-decoration: none;
+    font-size: 12px;
+    color: var(--cafe);
+    position: relative;
+}
+.navegacion > a:not(.boton)::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 100%;
+    height: 1px;
+    background: var(--cacao);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.2s;
+}
+.navegacion > a:hover::after {
+    transform: scaleX(1);
+}
+.navegacion form {
+    margin: 0;
+}
+.boton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    border: 1px solid var(--cacao);
+    background: var(--cacao);
+    color: white;
+    text-decoration: none;
+    padding: 13px 22px;
+    border-radius: 7px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition:
+        background 0.2s,
+        transform 0.2s,
+        box-shadow 0.2s;
+}
+.boton:hover {
+    color: white;
+    background: var(--cacaooscuro);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 18px #76544418;
+}
+.boton.secundario {
+    background: transparent;
+    color: var(--cacao);
+}
+.boton.secundario:hover {
+    background: var(--rosaclaro);
+    color: var(--cacaooscuro);
+}
+.boton.compacto {
+    padding: 9px 16px;
+    font-size: 11px;
+}
+button:disabled {
+    opacity: 0.55;
+    cursor: wait;
+    transform: none !important;
+}
+.etiqueta {
+    color: var(--cacao);
+    letter-spacing: 2px;
+    font-size: 9px;
+    font-weight: 700;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.enlace {
+    border: 0;
+    background: transparent;
+    color: var(--cacao);
+    font-size: 12px;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 0;
+}
+.portada {
+    padding-top: 65px;
+    padding-bottom: 65px;
+}
+.portada h1 {
+    margin: 25px 0 22px;
+}
+.portada p {
+    max-width: 450px;
+    line-height: 1.95;
+}
+.sellos {
+    display: flex;
+    gap: 24px;
+    margin-top: 30px;
+    font-size: 10px;
+    color: var(--suave);
+}
+.escaparate {
+    position: relative;
+    padding: 0 5px 32px;
+}
+.escaparate .carousel {
+    border-radius: 48% 48% 15px 15px;
+    overflow: hidden;
+    background: var(--rosa);
+}
+.escaparate .carousel-item img {
+    width: 100%;
+    height: 460px;
+    object-fit: cover;
+}
+.escaparate .carousel-control-prev,
+.escaparate .carousel-control-next {
+    border: 0;
+    width: 12%;
+}
+.escaparate .carousel-control-prev span,
+.escaparate .carousel-control-next span {
+    background: #fff9;
+    color: var(--cafe);
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    width: 32px;
+    height: 32px;
+    font-size: 20px;
+}
+.escaparate .carousel-indicators {
+    margin-bottom: 20px;
+}
+.flotante {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    position: absolute;
+    left: -30px;
+    bottom: 74px;
+    background: #fff;
+    padding: 17px 23px;
+    border-radius: 10px;
+    box-shadow: var(--sombra);
+    font-size: 11px;
+    animation: flotar 5s ease-in-out infinite;
+}
+.flotante > span {
+    font-size: 32px;
+    color: var(--cacao);
+}
+.flotante strong {
+    display: block;
+    font-weight: 600;
+    font-size: 12px;
+}
+.pausa {
+    border: 0;
+    background: transparent;
+    color: var(--suave);
+    display: block;
+    font-size: 10px;
+    margin: 12px auto 0;
+    padding: 5px 15px;
+}
+.cinta {
+    overflow: hidden;
+    background: var(--rosaclaro);
+    padding: 16px 0;
+    white-space: nowrap;
+    color: var(--cacao);
+    font-size: 10px;
+    letter-spacing: 2.5px;
+}
+.cinta > div {
+    width: max-content;
+    animation: deslizar 45s linear infinite;
+}
+.cinta span {
+    margin: 0 35px;
+}
+.cinta:hover > div {
+    animation-play-state: paused;
+}
+.seccion {
+    padding-top: 65px;
+    padding-bottom: 65px;
+}
+.titular {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+.titular h1,
+.titular h2 {
+    margin: 18px 0 13px;
+}
+.titular p {
+    margin-bottom: 0;
+}
+.contador {
+    font-size: 11px;
+    border: 1px solid var(--linea);
+    color: var(--cacao);
+    border-radius: 24px;
+    padding: 7px 14px;
+    white-space: nowrap;
+}
+.categorias {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 25px;
+}
+.categoria {
+    border: 1px solid var(--linea);
+    background: #fff;
+    border-radius: 25px;
+    color: var(--suave);
+    padding: 9px 20px;
+    font-size: 12px;
+    transition: all 0.2s;
+}
+.categoria:hover {
+    border-color: var(--cacao);
+    color: var(--cacao);
+    transform: translateY(-2px);
+}
+.categoria.activa {
+    background: var(--cacao);
+    border-color: var(--cacao);
+    color: white;
+}
+.buscador {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 30px;
+}
+.buscador input {
+    width: 100%;
+    border: 1px solid var(--linea);
+    background: #fff;
+    border-radius: 7px;
+    font-size: 13px;
+    padding: 12px 16px;
+}
+.buscador button {
+    white-space: nowrap;
+}
+.productos {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 28px;
+}
+.productos[aria-busy='true'] {
+    opacity: 0.7;
+}
+.producto {
+    border: 1px solid var(--linea);
+    border-radius: 12px;
+    overflow: hidden;
+    background: #fff;
+    transition:
+        transform 0.3s,
+        box-shadow 0.3s;
+    animation: aparecer 0.4s ease both;
+}
+.producto:hover {
+    transform: translateY(-7px);
+    box-shadow: var(--sombra);
+}
+.fotoproducto {
+    height: 255px;
+    position: relative;
+    overflow: hidden;
+    display: grid;
+    place-items: center;
+    background: var(--rosaclaro);
+}
+.fotoproducto > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s;
+}
+.producto:hover .fotoproducto > img {
+    transform: scale(1.045);
+}
+.favorito {
+    position: absolute;
+    right: 16px;
+    top: 16px;
+    display: grid;
+    place-items: center;
+    width: 38px;
+    height: 38px;
+    border: 0;
+    border-radius: 50%;
+    background: #fffef8ed;
+    color: var(--cacao);
+    font-size: 24px;
+    line-height: 1;
+    transition: transform 0.2s;
+}
+.favorito:hover {
+    transform: scale(1.1);
+}
+.favorito[aria-pressed='true'] {
+    color: var(--cacaooscuro);
+    background: #f7ded4;
+}
+.cuerpoproducto {
+    padding: 23px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+.cuerpoproducto .etiqueta {
+    font-size: 8px;
+}
+.cuerpoproducto h3 {
+    font-size: 25px;
+    margin: 10px 0 12px;
+}
+.descripcion {
+    color: var(--suave);
+    font-size: 12px;
+    line-height: 1.8;
+    min-height: 44px;
+    margin: 0 0 20px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+.precioproducto {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    margin-top: auto;
+}
+.precio {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 24px;
+    color: var(--cacao);
+}
+.precio.grande {
+    font-size: 35px;
+    margin: 22px 0;
+}
+.vistaboton {
+    border: 0;
+    background: transparent;
+    color: var(--suave);
+    font-size: 10px;
+    margin-top: 15px;
+    align-self: flex-start;
+    padding: 0;
+    text-align: left;
+}
+.vistaboton:hover {
+    color: var(--cacao);
+}
+.esqueleto {
+    height: 420px;
+    border-radius: 12px;
+    background: linear-gradient(110deg, #f0e4db 15%, #faf4ed 40%, #f0e4db 65%);
+    background-size: 200% 100%;
+    animation: brillar 1.4s linear infinite;
+}
+.vacio {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 50px 20px;
+    border: 1px dashed #d8baac;
+    border-radius: 15px;
+    background: #f9eee77d;
+}
+.vacioicono {
+    color: var(--cacao);
+    font-size: 38px;
+}
+.vacio h3 {
+    font-size: 29px;
+    margin: 15px 0;
+}
+.nosotros {
+    background: #f4e8dd;
+    border-radius: 18px;
+    padding: 45px;
+    margin-top: 10px;
+    margin-bottom: 65px;
+}
+.nosotros img {
+    display: block;
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+.nosotros h2 {
+    font-size: 39px;
+    margin: 20px 0;
+}
+.nosotros h3 {
+    font-size: 21px;
+}
+.nosotros p {
+    font-size: 13px;
+}
+.nosotros .row\.g-3 p {
+    font-size: 12px;
+}
+.invitacion {
+    text-align: center;
+    padding: 15px 20px 75px;
+}
+.invitacion h2 {
+    margin: 18px 0;
+    font-size: 44px;
+}
+.invitacion p {
+    margin-bottom: 25px;
+}
+.pie {
+    background: var(--rosaclaro);
+    border-top: 1px solid var(--linea);
+}
+.pie p {
+    font-size: 12px;
+    margin-top: 20px;
+}
+.pie strong {
+    display: block;
+    font-size: 12px;
+    margin-bottom: 17px;
+}
+.pie a:not(.marca) {
+    display: block;
+    text-decoration: none;
+    font-size: 12px;
+    margin: 8px 0;
+    color: var(--suave);
+}
+.pie a:hover {
+    color: var(--cacao);
+}
+.nota {
+    font-size: 10px;
+    border-top: 1px solid #dfc9bc;
+    padding: 19px 0;
+    color: var(--suave);
+}
+.acceso {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    max-width: 1020px;
+    margin: 60px auto 80px;
+    align-items: stretch;
+}
+.accesoimagen {
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px 0 0 15px;
+    min-height: 580px;
+}
+.accesoimagen > img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.accesoimagen::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(0deg, #39261bc7, transparent 70%);
+}
+.accesoimagen > div {
+    position: absolute;
+    left: 35px;
+    right: 25px;
+    bottom: 30px;
+    z-index: 1;
+}
+.accesoimagen h2 {
+    color: white;
+    font-size: 43px;
+    margin-top: 17px;
+}
+.accesoimagen .etiqueta {
+    color: #ffe5d7;
+}
+.formulario {
+    padding: 40px;
+    border: 1px solid var(--linea);
+    background: white;
+    border-radius: 0 15px 15px 0;
+}
+.formulario h1,
+.formulario h2 {
+    font-size: 35px;
+    margin: 18px 0;
+}
+.formulario p {
+    font-size: 13px;
+}
+label {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--cafe);
+    margin: 17px 0 7px;
+}
+.form-control,
+.form-select {
+    font-size: 13px;
+    border-color: #ddcfc4;
+    padding: 11px 13px;
+    color: var(--cafe);
+    background-color: white;
+}
+.form-control:focus,
+.form-select:focus,
+.buscador input:focus {
+    border-color: #bb8d7b;
+    outline: 2px solid #cfa99955;
+    outline-offset: 1px;
+    box-shadow: none;
+}
+small,
+.discreto {
+    font-size: 11px;
+    color: var(--suave);
+}
+.formulario form > .boton {
+    margin-top: 25px;
+}
+.formulario .alternativa {
+    margin: 22px 0 0;
+    font-size: 12px;
+}
+.campoclave {
+    position: relative;
+}
+.campoclave input {
+    padding-right: 65px;
+}
+.verclave {
+    position: absolute;
+    top: 3px;
+    right: 8px;
+    border: 0;
+    background: transparent;
+    color: var(--cacao);
+    font-size: 10px;
+    padding: 10px 3px;
+}
+.detalle {
+    padding-top: 40px;
+    padding-bottom: 70px;
+}
+.detalle h1 {
+    font-size: 52px;
+    margin: 20px 0;
+}
+.fotodetalle {
+    width: 100%;
+    height: 520px;
+    object-fit: cover;
+    border-radius: 14px;
+}
+.recordatorio {
+    margin-top: 35px;
+    padding: 22px;
+    background: var(--rosaclaro);
+    border-radius: 11px;
+    font-size: 13px;
+}
+.recordatorio p {
+    font-size: 12px;
+    margin: 6px 0 10px;
+}
+.recordatorio a {
+    font-size: 12px;
+    text-decoration: none;
+}
+.vistaprevia {
+    border: 1px solid var(--linea);
+    border-radius: 15px;
+    width: min(560px, 90%);
+    max-height: 90vh;
+    padding: 0;
+    background: var(--crema);
+    color: var(--cafe);
+}
+.vistaprevia::backdrop {
+    background: #39261baa;
+    backdrop-filter: blur(4px);
+}
+.vistaprevia .fotoproducto {
+    height: 300px;
+}
+.cuerpovista {
+    padding: 30px;
+}
+.cuerpovista h2 {
+    font-size: 34px;
+    margin: 16px 0;
+}
+.cuerpovista .precio {
+    display: block;
+    margin-bottom: 23px;
+}
+.cerrar {
+    position: absolute;
+    top: 13px;
+    right: 13px;
+    width: 34px;
+    height: 34px;
+    border: 0;
+    border-radius: 50%;
+    background: #fff;
+    color: var(--cafe);
+    z-index: 2;
+    font-size: 16px;
+}
+.avisos {
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: max-content;
+    max-width: 90%;
+    z-index: 1100;
+}
+.mensaje {
+    padding: 14px 23px;
+    border-radius: 10px;
+    background: var(--cafe);
+    color: white;
+    box-shadow: var(--sombra);
+    font-size: 12px;
+    animation: aparecer 0.25s ease;
+}
+.arriba {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 20;
+    width: 40px;
+    height: 40px;
+    background: var(--cacao);
+    color: white;
+    border: 0;
+    border-radius: 50%;
+}
+.inforecetas {
+    display: flex;
+    gap: 25px;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--rosaclaro);
+    padding: 25px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+.inforecetas p {
+    margin: 0;
+    max-width: 650px;
+    font-size: 13px;
+}
+.inforecetas .boton {
+    white-space: nowrap;
+}
+.fotoreceta {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+}
+.fuente {
+    margin-top: 30px;
+    font-size: 11px;
+}
+.recetadetalle {
+    margin-top: 35px;
+    background: white;
+    border: 1px solid var(--linea);
+    border-radius: 14px;
+    padding: 35px;
+}
+.recetadetalle h2 {
+    margin: 15px 0 25px;
+}
+.recetadetalle h3 {
+    margin-top: 25px;
+}
+.ingredientes {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 30px;
+    color: var(--suave);
+    font-size: 13px;
+}
+.instrucciones {
+    white-space: pre-line;
+}
+.instalacion {
+    max-width: 620px;
+    margin: auto;
+    border-radius: 15px;
+}
+.revisiones {
+    list-style: none;
+    padding: 0;
+}
+.revisiones li {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    border-bottom: 1px solid var(--linea);
+    padding: 13px 0;
+    font-size: 12px;
+}
+.revisiones strong {
+    color: var(--cacao);
+    font-size: 11px;
+    white-space: nowrap;
+}
+.administracion {
+    background: #f6f1eb;
+}
+.barrapanel {
+    position: sticky;
+    top: 0;
+    z-index: 30;
+    height: 83px;
+    background: var(--crema);
+    border-bottom: 1px solid var(--linea);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 18px 30px;
+}
+.lateral {
+    position: fixed;
+    top: 83px;
+    left: 0;
+    bottom: 0;
+    width: 235px;
+    overflow-y: auto;
+    background: var(--crema);
+    border-right: 1px solid var(--linea);
+    padding: 28px 22px;
+    z-index: 29;
+}
+.persona {
+    padding-bottom: 25px;
+    border-bottom: 1px solid var(--linea);
+    margin-bottom: 22px;
+}
+.persona strong {
+    display: block;
+    font-size: 13px;
+    overflow-wrap: anywhere;
+}
+.persona small {
+    display: block;
+    margin-top: 4px;
+    font-size: 10px;
+}
+.lateral nav {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.lateral nav a {
+    display: block;
+    padding: 12px;
+    border-radius: 7px;
+    font-size: 13px;
+    text-decoration: none;
+    color: var(--suave);
+}
+.lateral nav &#x61;.activo,
+.lateral nav a:hover {
+    background: var(--rosaclaro);
+    color: var(--cacao);
+}
+.lateral > p {
+    font-size: 11px;
+    margin: 30px 0 20px;
+}
+.contenidopanel {
+    margin-left: 235px;
+    padding: 35px;
+    min-height: calc(100vh - 83px);
+}
+.contenidopanel > h1 {
+    font-size: 36px;
+    margin: 16px 0 20px;
+}
+.resumen {
+    padding: 24px;
+    border: 1px solid var(--linea);
+    border-radius: 12px;
+    background: white;
+}
+.resumen > span {
+    font-size: 12px;
+    color: var(--suave);
+}
+.resumen > strong {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 42px;
+    font-weight: 400;
+    color: var(--cacao);
+}
+.tarjetapanel {
+    padding: 28px;
+    background: white;
+    border: 1px solid var(--linea);
+    border-radius: 12px;
+}
+.tarjetapanel h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+.tarjetapanel > .boton {
+    width: max-content;
+    max-width: 100%;
+}
+.table {
+    --bs-table-bg: transparent;
+    --bs-table-border-color: #f0e6df;
+    color: var(--cafe);
+    font-size: 12px;
+}
+.table th {
+    font-size: 10px;
+    color: var(--suave);
+    font-weight: 600;
+    padding: 12px 8px;
+}
+.table td {
+    padding: 14px 8px;
+}
+.tablados {
+    min-width: 650px;
+}
+.miniatura {
+    width: 48px;
+    height: 48px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+.insignia {
+    display: inline-block;
+    background: var(--rosaclaro);
+    color: var(--cacao);
+    border-radius: 20px;
+    padding: 5px 10px;
+    font-size: 10px;
+}
+.cabecerapanel {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+}
+.acciones {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+.acciones a {
+    font-size: 12px;
+    text-decoration: none;
+}
+.textopeligro {
+    border: 0;
+    background: transparent;
+    padding: 0;
+    color: #a24638;
+    font-size: 11px;
+}
+.editor {
+    max-width: 1120px;
+}
+.fotoprevia {
+    width: 100%;
+    height: 290px;
+    object-fit: contain;
+    background: var(--rosaclaro);
+    border-radius: 12px;
+    margin-top: 20px;
+}
+.form-check {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    padding-left: 0;
+}
+.form-check .form-check-input {
+    margin: 0;
+    float: none;
+    flex-shrink: 0;
+}
+.form-check-label {
+    margin: 0;
+}
+.form-check-input:checked {
+    background-color: var(--cacao);
+    border-color: var(--cacao);
+}
+.finalpanel {
+    padding-top: 40px;
+    color: var(--suave);
+    font-size: 10px;
+}
+.accesopanel {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    align-items: center;
+    gap: 70px;
+    min-height: 100vh;
+    padding: 50px 30px;
+    max-width: 1080px;
+}
+.accesopanel > section:first-child .marca {
+    margin-bottom: 60px;
+}
+.accesopanel > section:first-child > .etiqueta {
+    display: block;
+}
+.accesopanel h1 {
+    font-size: 53px;
+    margin: 22px 0;
+}
+.accesopanel .formulario {
+    border-radius: 15px;
+}
+.accesopanel .formulario small {
+    display: block;
+    margin-top: 20px;
+}
+.saltar {
+    position: fixed;
+    left: 10px;
+    top: -150px;
+    z-index: 1500;
+    padding: 10px 20px;
+    background: white;
+}
+.saltar:focus {
+    top: 10px;
+}
+.visualmente {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+}
+.revelar.espera {
+    opacity: 0;
+    transform: translateY(20px);
+    transition:
+        opacity 0.7s,
+        transform 0.7s;
+}
+.revelar.visible {
+    opacity: 1;
+    transform: none;
+}
+@keyframes flotar {
+    50% {
+        transform: translateY(-8px);
+    }
+}
+@keyframes deslizar {
+    to {
+        transform: translateX(-50%);
+    }
+}
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+@keyframes brillar {
+    to {
+        background-position: -200% 0;
+    }
+}
+
+@media (max-width: 1199px) {
+    .container {
+        width: 92%;
+    }
+    .navegacion {
+        gap: 17px;
+    }
+    .marca {
+        font-size: 21px;
+    }
+    .navegacion > a:not(.boton) {
+        font-size: 11px;
+    }
+    .escaparate .carousel-item img {
+        height: 410px;
+    }
+    .portada h1 {
+        font-size: 52px;
+    }
+    .contenidopanel {
+        padding: 28px;
+    }
+}
+
+@media (max-width: 991px) {
+    .navegacion {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding-top: 20px;
+    }
+    .navegacion > a {
+        padding: 11px 0;
+    }
+    .navegacion > a:not(.boton) {
+        font-size: 13px;
+    }
+    .navegacion > .boton {
+        align-self: flex-start;
+        padding: 10px 17px;
+    }
+    .navegacion form {
+        margin-top: 12px;
+    }
+    .portada {
+        padding-top: 35px;
+        padding-bottom: 40px;
+    }
+    .portada h1 {
+        font-size: 55px;
+    }
+    .portada p {
+        max-width: 550px;
+    }
+    .escaparate {
+        max-width: 570px;
+        margin: 0 auto;
+    }
+    .escaparate .carousel-item img {
+        height: 420px;
+    }
+    .productos {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .nosotros {
+        padding: 32px;
+    }
+    .nosotros img {
+        height: 330px;
+    }
+    .acceso {
+        max-width: 760px;
+    }
+    .formulario {
+        padding: 30px;
+    }
+    .accesoimagen h2 {
+        font-size: 35px;
+    }
+    .accesoimagen > div {
+        left: 25px;
+    }
+    .fotodetalle {
+        height: 420px;
+    }
+    .lateral {
+        position: static;
+        top: auto;
+        width: auto;
+        max-height: 70vh;
+        border-right: 0;
+        border-bottom: 1px solid var(--linea);
+        padding: 20px 5%;
+    }
+    .lateral > p {
+        display: none;
+    }
+    .lateral form {
+        max-width: 210px;
+        margin-top: 20px;
+    }
+    .persona {
+        padding-bottom: 14px;
+        margin-bottom: 12px;
+    }
+    .contenidopanel {
+        margin-left: 0;
+        padding: 30px 5%;
+    }
+    .accesopanel {
+        grid-template-columns: 1fr;
+        max-width: 650px;
+        gap: 30px;
+    }
+    .accesopanel > section:first-child .marca {
+        margin-bottom: 30px;
+    }
+    .accesopanel h1 {
+        font-size: 40px;
+    }
+    .accesopanel h1 br {
+        display: none;
+    }
+}
+
+@media (max-width: 575px) {
+    html {
+        scroll-padding-top: 95px;
+    }
+    .container {
+        width: 93%;
+    }
+    .anuncio {
+        font-size: 8px;
+        letter-spacing: 0.8px;
+    }
+    .marca {
+        font-size: 20px;
+        gap: 8px;
+    }
+    .marca img {
+        width: 39px;
+        height: 39px;
+    }
+    .marca small {
+        font-size: 7px;
+        letter-spacing: 1px;
+    }
+    .navbar-toggler {
+        font-size: 11px;
+        padding: 8px 12px;
+    }
+    .portada h1 {
+        font-size: 43px;
+        letter-spacing: -1px;
+    }
+    .portada .etiqueta {
+        font-size: 8px;
+        letter-spacing: 1.2px;
+    }
+    .portada p {
+        font-size: 13px;
+    }
+    .portada .boton {
+        font-size: 12px;
+        padding: 12px 18px;
+    }
+    .sellos {
+        gap: 17px;
+        font-size: 9px;
+        margin-top: 23px;
+    }
+    .escaparate {
+        padding: 0 10px 22px;
+    }
+    .escaparate .carousel-item img {
+        height: 330px;
+    }
+    .flotante {
+        left: 0;
+        bottom: 60px;
+        padding: 12px 18px;
+        font-size: 10px;
+    }
+    .flotante strong {
+        font-size: 11px;
+    }
+    .flotante > span {
+        font-size: 26px;
+    }
+    .cinta {
+        font-size: 9px;
+        padding: 13px 0;
+    }
+    .seccion {
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+    .titular {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+        margin-bottom: 25px;
+    }
+    .titular h2 {
+        font-size: 36px;
+    }
+    .titular h1 {
+        font-size: 40px;
+    }
+    .etiqueta {
+        font-size: 8px;
+        letter-spacing: 1.5px;
+    }
+    .categorias {
+        gap: 8px;
+        margin-bottom: 20px;
+    }
+    .categoria {
+        font-size: 11px;
+        padding: 8px 14px;
+    }
+    .buscador {
+        flex-direction: column;
+        gap: 8px;
+    }
+    .buscador .boton {
+        align-self: flex-start;
+        font-size: 11px;
+        padding: 8px 14px;
+    }
+    .productos {
+        grid-template-columns: 1fr;
+        gap: 22px;
+    }
+    .fotoproducto {
+        height: 270px;
+    }
+    .cuerpoproducto {
+        padding: 23px;
+    }
+    .cuerpoproducto h3 {
+        font-size: 26px;
+    }
+    .descripcion {
+        min-height: auto;
+    }
+    .nosotros {
+        padding: 25px;
+        margin-bottom: 40px;
+    }
+    .nosotros h2 {
+        font-size: 33px;
+    }
+    .nosotros img {
+        height: 280px;
+    }
+    .invitacion {
+        padding-bottom: 45px;
+    }
+    .invitacion h2 {
+        font-size: 37px;
+    }
+    .pie .marca {
+        font-size: 22px;
+    }
+    .pie a:not(.marca) {
+        font-size: 11px;
+    }
+    .nota {
+        font-size: 9px;
+    }
+    .acceso {
+        grid-template-columns: 1fr;
+        margin: 30px auto 45px;
+    }
+    .accesoimagen {
+        min-height: 240px;
+        border-radius: 15px 15px 0 0;
+    }
+    .accesoimagen h2 {
+        font-size: 34px;
+    }
+    .accesoimagen h2 br {
+        display: none;
+    }
+    .accesoimagen > div {
+        left: 25px;
+        bottom: 15px;
+    }
+    .formulario {
+        border-radius: 0 0 15px 15px;
+        padding: 28px 25px;
+    }
+    .formulario h1,
+    .formulario h2 {
+        font-size: 32px;
+    }
+    .detalle {
+        padding-top: 25px;
+        padding-bottom: 45px;
+    }
+    .detalle h1 {
+        font-size: 40px;
+    }
+    .fotodetalle {
+        height: 330px;
+    }
+    .vistaprevia .fotoproducto {
+        height: 250px;
+    }
+    .cuerpovista {
+        padding: 25px;
+    }
+    .inforecetas {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+        padding: 22px;
+    }
+    .ingredientes {
+        grid-template-columns: 1fr;
+    }
+    .recetadetalle {
+        padding: 24px;
+    }
+    .barrapanel {
+        height: auto;
+        min-height: 82px;
+        flex-wrap: wrap;
+        padding: 17px 5%;
+    }
+    .barrapanel .marca {
+        font-size: 20px;
+    }
+    .barrapanel .boton {
+        font-size: 10px;
+        padding: 8px 12px;
+    }
+    .contenidopanel > h1 {
+        font-size: 33px;
+    }
+    .cabecerapanel {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+    .resumen {
+        padding: 20px;
+    }
+    .resumen > strong {
+        font-size: 36px;
+    }
+    .tarjetapanel {
+        padding: 22px 18px;
+    }
+    .editor {
+        padding: 22px;
+    }
+    .fotoprevia {
+        height: 230px;
+    }
+    .accesopanel {
+        padding: 30px 20px;
+    }
+    .accesopanel h1 {
+        font-size: 37px;
+    }
+    .instalacion.formulario {
+        border-radius: 15px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+    }
+    .revelar.espera {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+
+.flotante {
+    z-index: 4;
+}
+
+
+
+:root {
+    --crema: #ffffff;
+    --rosa: #eeeeee;
+    --rosaclaro: #f5f5f5;
+    --suave: #666666;
+    --sombra: none;
+}
+html { scroll-behavior: auto; scroll-padding-top: 90px; }
+body { line-height: 1.55; }
+h1, h2, h3 { font-family: Arial, Helvetica, sans-serif; font-weight: 600; letter-spacing: normal; }
+h1 { font-size: clamp(28px, 3vw, 36px); }
+h2 { font-size: 26px; }
+h3 { font-size: 20px; }
+h1 em, h2 em, h3 em { font-style: normal; color: inherit; }
+.encabezado { background: #fff; box-shadow: none; backdrop-filter: none; border-bottom: 1px solid #ddd; }
+.marca { font-family: Arial, Helvetica, sans-serif; font-size: 22px; letter-spacing: normal; }
+.marca small, .anuncio, .sellos, .flotante, .cinta { display: none; }
+.navegacion > a::after { display: none; }
+.boton, .categoria, .contador { border-radius: 4px; box-shadow: none; }
+.boton:hover, .categoria:hover, .producto:hover, .favorito:hover { transform: none; box-shadow: none; }
+.portada { padding-top: 30px; padding-bottom: 30px; }
+.portada .row { --bs-gutter-y: 1.5rem; }
+.portada h1 { max-width: none; }
+.portada p { max-width: none; font-size: 17px; margin: 16px 0 24px; }
+.escaparate { padding: 0; }
+.escaparate .carousel { border-radius: 5px; box-shadow: none; }
+.escaparate .carousel-item img { height: 240px; width: 100%; object-fit: cover; }
+.pausa { position: static; display: block; margin-top: 8px; padding: 4px 0; background: transparent; color: #555; border: 0; font-size: 13px; }
+.seccion { padding-top: 32px; padding-bottom: 40px; }
+.titular { margin-bottom: 20px; }
+.titular h1, .titular h2 { margin-bottom: 8px; }
+.categorias { gap: 8px; }
+.categoria { padding: 8px 14px; }
+.producto, .tarjetapanel, .card { border-radius: 5px; box-shadow: none; border: 1px solid #ddd; }
+.producto { animation: none; transition: none; }
+.producto:hover .fotoproducto > img { transform: none; }
+.fotoproducto > img { transition: none; }
+.cuerpoproducto { padding: 16px; }
+.precio { font-family: Arial, Helvetica, sans-serif; font-weight: 600; }
+.etiqueta { letter-spacing: .4px; }
+.pie { background: #f5f5f5; color: #333; border-top: 1px solid #ddd; margin-top: 24px; }
+.revelar, .revelar.visible { opacity: 1; transform: none; transition: none; }
+.acceso { display: block; max-width: 520px; padding-top: 36px; padding-bottom: 36px; }
+.accesoimagen { display: none; }
+.accesoformulario, .acceso > div:last-child { padding: 24px; border: 1px solid #ddd; border-radius: 5px; background: #fff; }
+.invitacion, .nosotros { background: #f7f7f7; border-radius: 5px; box-shadow: none; }
+@media (max-width: 767px) {
+    .portada { padding-top: 24px; }
+    .escaparate .carousel-item img { height: 190px; }
+    .marca { font-size: 20px; }
+    .titular { align-items: flex-start; }
+}
+
+.resumen > strong { font-size: 32px; font-weight: 600; }
+
+
+
+body, button, input, select, textarea,
+h1, h2, h3, h4, h5, h6, .marca, .precio, .resumen > strong {
+    font-family: Arial, Helvetica, sans-serif;
+}
+body { font-size: 14px; }
+h1 { font-size: clamp(26px, 3vw, 34px); font-weight: 600; }
+h2 { font-size: 24px; font-weight: 600; }
+h3, .cuerpoproducto h3 { font-size: 19px; font-weight: 600; }
+.marca { font-size: 21px; }
+
+
+body { font-size: 15px; }
+.navegacion a, .categoria, .buscador input, .descripcion { font-size: 14px; }
+.cuerpoproducto h3 { font-size: 20px; font-weight: 600; }
+
+body, button, input, select, textarea, h1, h2, h3, h4, h5, h6, .marca, .precio, .resumen > strong {
+    font-family: Arial, Helvetica, sans-serif;
+}
